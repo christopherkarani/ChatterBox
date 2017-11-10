@@ -17,18 +17,30 @@ class HomeDatasourceVController: DatasourceController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 150)
+        if let user = self.datasource?.item(indexPath) as? User {
+            let estimatedWidthOfDisplayText = self.view.frame.width   // view padding
+            let size = CGSize(width: estimatedWidthOfDisplayText, height: 1000)
+            let attributes = [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15)]
+            
+            let estimatedFrame = NSString(string: user.displayText).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+            
+            return CGSize(width: view.frame.width, height: estimatedFrame.height + 52)
+        }
+        return CGSize(width: view.frame.width, height: 200)
     }
     
 }
 
 extension HomeDatasourceVController {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 50)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 100)
+        return CGSize(width: view.frame.width, height: 50)
     }
 }

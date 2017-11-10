@@ -86,7 +86,7 @@ class UserCell: DatasourceCell {
         let topConstantPadding : CGFloat = 12
         let rightConstantPadding: CGFloat = 8
         
-        profileImageView.anchor(topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: topConstantPadding, leftConstant: 8, bottomConstant: 0, rightConstant: rightConstantPadding, widthConstant: 50, heightConstant: 50)
+        profileImageView.anchor(topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: topConstantPadding, leftConstant: 12, bottomConstant: 0, rightConstant: rightConstantPadding, widthConstant: 50, heightConstant: 50)
         
         displayName.anchor(profileImageView.topAnchor, left: profileImageView.rightAnchor, bottom: nil, right: followButton.leftAnchor, topConstant: 0, leftConstant: 8, bottomConstant: 0, rightConstant: 8, widthConstant: 0, heightConstant: 20)
         
