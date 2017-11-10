@@ -9,15 +9,21 @@
 import LBTAComponents
 
 class HomeDataSource: Datasource {
+    var users : [User] = {
+        var chris = User(userName: "@chrisK🔥", displayName:"Christopher Karani", displayText: "Coming together is a beginning, staying together is progress, and working together is success. Semi-Pro Footballer by day. Apple Developer by night. ", profileImage: #imageLiteral(resourceName: "chris"))
+        var elonMusk = User(userName: "@elonMusk", displayName: "Elon Musk", displayText: "Tesla, SpaceX, OpenAI & Neuralink. South African entrepreneur Elon Musk is known for founding Tesla Motors and SpaceX, which launched a landmark commercial spacecraft in 2012.", profileImage: #imageLiteral(resourceName: "elonmusk"))
+        var elenDegeneres = User(userName: "@TheElenShow", displayName: "Ellen DeGeneres", displayText: "Comedian, talk show host and ice road trucker. My tweets are real, and they’re spectacular.", profileImage: #imageLiteral(resourceName: "EllenD"))
+        var bilGates = User(userName: "@BillGates", displayName: "Bill Gates", displayText: "Sharing things I'm learning through my foundation work and other interests...", profileImage: #imageLiteral(resourceName: "BillGates"))
+        return [chris, elonMusk, elenDegeneres, bilGates]
+    }()
     
-    var names = ["Sam", "Tobius", "Gertrude", "Nopi", "Carol"]
     
     override func item(_ indexPath: IndexPath) -> Any? {
-        return names[indexPath.item]
+        return users[indexPath.item]
     }
     
     override func numberOfItems(_ section: Int) -> Int {
-        return names.count
+        return users.count
     }
     
     override func cellClasses() -> [DatasourceCell.Type] {

@@ -9,9 +9,25 @@
 import LBTAComponents
 
 class HeaderCell : DatasourceCell {
+    
+    let textLabel: UILabel = {
+       let label = UILabel()
+        label.text = "WHO TO FOLLOW"
+        label.font = UIFont.systemFont(ofSize: 15)
+        return label
+    }()
+    
+    private func setupSeperatorView() {
+        separatorLineView.isHidden = false
+        separatorLineView.backgroundColor = UIColor(r: 230, g: 230, b: 230)
+    }
+    
     override func setupViews() {
         super.setupViews()
         
-        backgroundColor = .green
+        setupSeperatorView()
+
+        addSubview(textLabel)
+        textLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }
 }
