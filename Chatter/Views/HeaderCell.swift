@@ -11,7 +11,7 @@ import LBTAComponents
 class HeaderCell : DatasourceCell {
     
     let textLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "WHO TO FOLLOW"
         label.font = UIFont.systemFont(ofSize: 15)
         return label
@@ -24,9 +24,9 @@ class HeaderCell : DatasourceCell {
     
     override func setupViews() {
         super.setupViews()
-        
+        backgroundColor = .white
         setupSeperatorView()
-
+        
         addSubview(textLabel)
         textLabel.anchor(topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
     }

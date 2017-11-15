@@ -6,6 +6,7 @@
 //  Copyright © 2017 Neptune. All rights reserved.
 //
 
+
 import LBTAComponents
 
 class UserCell: DatasourceCell {
@@ -46,9 +47,10 @@ class UserCell: DatasourceCell {
     }()
     
     let displayText : UITextView = {
-       let tv = UITextView()
+        let tv = UITextView()
         tv.text = "I make apps, games & Swift developer tools. Blogging weekly & podcasting about Swift development."
         tv.backgroundColor = .clear
+        tv.font = UIFont.systemFont(ofSize: 15)
         return tv
     }()
     
@@ -76,7 +78,8 @@ class UserCell: DatasourceCell {
     
     override func setupViews() {
         super.setupViews()
-        setupSeperatorView() 
+        backgroundColor = .white
+        setupSeperatorView()
         addSubview(displayName)
         addSubview(profileImageView)
         addSubview(userName)
