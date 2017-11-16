@@ -51,6 +51,10 @@ extension HomeDatasourceVController {
         }
         return CGSize(width: view.frame.width, height: 64)
     }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionViewLayout.invalidateLayout()
+    }
 }
 
 extension HomeDatasourceVController {
@@ -106,3 +110,4 @@ extension HomeDatasourceVController {
         navigationItem.titleView = titleImage
     }
 }
+
