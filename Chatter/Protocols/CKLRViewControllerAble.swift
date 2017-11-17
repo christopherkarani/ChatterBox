@@ -8,19 +8,13 @@
 
 import UIKit
 
+
 protocol CKLRViewControllerAble {
-    var controllerTitle: String! { get set }
     var controllerTitleLabel: CKLRLabel! { get set }
 }
 
-extension CKLRViewControllerAble where Self: LoginController {
-    var controllerTitle: String! {
-        return "Login"
-    }
-}
 
-extension CKLRViewControllerAble where Self: RegisterController {
-    var controllerTitle: String! {
-        return "Register"
-    }
-}
+
+
+
+

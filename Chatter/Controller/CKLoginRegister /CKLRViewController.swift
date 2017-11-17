@@ -10,23 +10,10 @@ import Material
 import Pastel
 import SnapKit
 
-
-
-
-
-
 class CKLRViewController : UIViewController, CKLRViewControllerAble {
-    
-    var controllerTitle: String! {
-        didSet {
-            controllerTitleLabel?.text = controllerTitle
-        }
-    }
     var controllerTitleLabel : CKLRLabel!
-    
-    private func setupTitle() {
-        
-    }
+
+
     
     open var LoginRegisterButton: UIButton = {
        let button = UIButton(type: .system)
@@ -44,26 +31,26 @@ class CKLRViewController : UIViewController, CKLRViewControllerAble {
         addSubviews()
         
         controllerTitleLabel?.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(30)
             make.centerX.equalToSuperview()
-            make.width.equalTo(150)
-            make.height.equalTo(50)
         }
     }
     
 
+
     
-    fileprivate func setup() {
+    open func setup() {
         controllerViewConstraints()
         setupNavigationBar()
         setupPastelBackground()
     }
     
+
     open func setloginRegisterTitile(_ title: String) {
         self.LoginRegisterButton.setTitle(title, for: .normal)
     }
     
-    internal func setupPastelBackground() {
+    private func setupPastelBackground() {
         let pastelView = PastelView(frame: view.bounds)
         
         // Custom Direction
@@ -90,6 +77,8 @@ class CKLRViewController : UIViewController, CKLRViewControllerAble {
     open func externalSetup(type: CKLRViewControllerAble) {
         controllerTitleLabel.controllable = type
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
