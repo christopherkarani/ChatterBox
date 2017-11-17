@@ -11,24 +11,7 @@ import Pastel
 import SnapKit
 
 
-class CKLRLabel : UILabel {
-    var controllable: CKLRViewControllerAble?
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setText()
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    private func setText() {
-        text = controllable is LoginController.Type ? "Log-In" : "Register"
-        textColor = .white
-        font = UIFont.boldSystemFont(ofSize: 22)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
+
 
 
 
@@ -51,7 +34,7 @@ class CKLRViewController : UIViewController, CKLRViewControllerAble {
         return button
     }()
     
-    private func controllerViewConstraints() {
+    fileprivate func controllerViewConstraints() {
         controllerTitleLabel = CKLRLabel()
         
         func addSubviews() {
@@ -70,7 +53,7 @@ class CKLRViewController : UIViewController, CKLRViewControllerAble {
     
 
     
-    private func setup() {
+    fileprivate func setup() {
         controllerViewConstraints()
         setupNavigationBar()
         setupPastelBackground()
@@ -100,8 +83,12 @@ class CKLRViewController : UIViewController, CKLRViewControllerAble {
         view.insertSubview(pastelView, at: 0)
     }
     
-    open func setupNavigationBar() {
+    fileprivate func setupNavigationBar() {
         navigationController?.navigationBar.isHidden = true
+    }
+    
+    open func externalSetup(type: CKLRViewControllerAble) {
+        controllerTitleLabel.controllable = type
     }
     override func viewDidLoad() {
         super.viewDidLoad()

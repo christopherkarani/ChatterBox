@@ -9,6 +9,6 @@
 import Material
 import Motion
 
-class LoginController: CKLRViewController, CKLRViewControllerAble {
-
+class LoginController: CKLRViewController {
+    
 }

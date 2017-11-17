@@ -14,6 +14,7 @@
 		18E900E71FBEE17E0036F5D3 /* CKLRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E900E61FBEE17E0036F5D3 /* CKLRViewController.swift */; };
 		18E900E91FBEE1CB0036F5D3 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E900E81FBEE1CB0036F5D3 /* RegisterController.swift */; };
 		18E900EC1FBEEB1E0036F5D3 /* CKLRViewControllerAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E900EB1FBEEB1E0036F5D3 /* CKLRViewControllerAble.swift */; };
+		18E900EE1FBEF01C0036F5D3 /* CKLRLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E900ED1FBEF01C0036F5D3 /* CKLRLabel.swift */; };
 		84F4C01B3AE74D6C740CA42E /* Pods_Chatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFAECA7A8DCBF7D23839CB8 /* Pods_Chatter.framework */; };
 		BB5401BA1FB6339300810FA2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5401B91FB6339300810FA2 /* User.swift */; };
 		BB7F22501FB455BF00EC5DDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7F224F1FB455BF00EC5DDB /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 		18E900E61FBEE17E0036F5D3 /* CKLRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKLRViewController.swift; sourceTree = "<group>"; };
 		18E900E81FBEE1CB0036F5D3 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		18E900EB1FBEEB1E0036F5D3 /* CKLRViewControllerAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKLRViewControllerAble.swift; sourceTree = "<group>"; };
+		18E900ED1FBEF01C0036F5D3 /* CKLRLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKLRLabel.swift; sourceTree = "<group>"; };
 		1AFAECA7A8DCBF7D23839CB8 /* Pods_Chatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64992CB771D872A2004A3E34 /* Pods-Chatter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chatter/Pods-Chatter.debug.xcconfig"; sourceTree = "<group>"; };
 		BB5401B91FB6339300810FA2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				BB7F226E1FB4718C00EC5DDB /* FooterCell.swift */,
 				BB7F22701FB471B800EC5DDB /* UserCell.swift */,
 				181F52E31FBCB848006CFFFB /* TweetCell.swift */,
+				18E900ED1FBEF01C0036F5D3 /* CKLRLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				BB7F226D1FB4717B00EC5DDB /* HeaderCell.swift in Sources */,
 				BB7F226B1FB4711B00EC5DDB /* HomeDatasourceVController.swift in Sources */,
 				181F52E41FBCB848006CFFFB /* TweetCell.swift in Sources */,
+				18E900EE1FBEF01C0036F5D3 /* CKLRLabel.swift in Sources */,
 				BB7F22711FB471B800EC5DDB /* UserCell.swift in Sources */,
 				18E900A81FBE36A50036F5D3 /* LoginRegisterController.swift in Sources */,
 				18E900EC1FBEEB1E0036F5D3 /* CKLRViewControllerAble.swift in Sources */,
