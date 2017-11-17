@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		181F52E41FBCB848006CFFFB /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F52E31FBCB848006CFFFB /* TweetCell.swift */; };
 		181F52E61FBCC362006CFFFB /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181F52E51FBCC362006CFFFB /* Tweet.swift */; };
+		18E900A81FBE36A50036F5D3 /* LoginRegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E900A71FBE36A50036F5D3 /* LoginRegisterController.swift */; };
+		18E900E41FBEDF940036F5D3 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E900E31FBEDF940036F5D3 /* LoginController.swift */; };
+		18E900E71FBEE17E0036F5D3 /* CKLRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E900E61FBEE17E0036F5D3 /* CKLRViewController.swift */; };
+		18E900E91FBEE1CB0036F5D3 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E900E81FBEE1CB0036F5D3 /* RegisterController.swift */; };
+		18E900EC1FBEEB1E0036F5D3 /* CKLRViewControllerAble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E900EB1FBEEB1E0036F5D3 /* CKLRViewControllerAble.swift */; };
 		84F4C01B3AE74D6C740CA42E /* Pods_Chatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AFAECA7A8DCBF7D23839CB8 /* Pods_Chatter.framework */; };
 		BB5401BA1FB6339300810FA2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5401B91FB6339300810FA2 /* User.swift */; };
 		BB7F22501FB455BF00EC5DDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7F224F1FB455BF00EC5DDB /* AppDelegate.swift */; };
@@ -25,6 +30,11 @@
 /* Begin PBXFileReference section */
 		181F52E31FBCB848006CFFFB /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
 		181F52E51FBCC362006CFFFB /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		18E900A71FBE36A50036F5D3 /* LoginRegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterController.swift; sourceTree = "<group>"; };
+		18E900E31FBEDF940036F5D3 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		18E900E61FBEE17E0036F5D3 /* CKLRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKLRViewController.swift; sourceTree = "<group>"; };
+		18E900E81FBEE1CB0036F5D3 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		18E900EB1FBEEB1E0036F5D3 /* CKLRViewControllerAble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKLRViewControllerAble.swift; sourceTree = "<group>"; };
 		1AFAECA7A8DCBF7D23839CB8 /* Pods_Chatter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chatter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64992CB771D872A2004A3E34 /* Pods-Chatter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chatter/Pods-Chatter.debug.xcconfig"; sourceTree = "<group>"; };
 		BB5401B91FB6339300810FA2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -54,6 +64,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18E900E51FBEE1290036F5D3 /* CKLoginRegister  */ = {
+			isa = PBXGroup;
+			children = (
+				18E900E61FBEE17E0036F5D3 /* CKLRViewController.swift */,
+				18E900E31FBEDF940036F5D3 /* LoginController.swift */,
+				18E900E81FBEE1CB0036F5D3 /* RegisterController.swift */,
+			);
+			path = "CKLoginRegister ";
+			sourceTree = "<group>";
+		};
+		18E900EA1FBEEB0D0036F5D3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				18E900EB1FBEEB1E0036F5D3 /* CKLRViewControllerAble.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		3AB7D66044F2EB33FD137583 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +120,7 @@
 		BB7F224E1FB455BF00EC5DDB /* Chatter */ = {
 			isa = PBXGroup;
 			children = (
+				18E900EA1FBEEB0D0036F5D3 /* Protocols */,
 				BB7F22631FB45CDF00EC5DDB /* Views */,
 				BB7F22671FB46E5A00EC5DDB /* Model */,
 				BB7F22661FB46DF800EC5DDB /* Controller */,
@@ -118,7 +147,9 @@
 		BB7F22661FB46DF800EC5DDB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				18E900E51FBEE1290036F5D3 /* CKLoginRegister  */,
 				BB7F226A1FB4711B00EC5DDB /* HomeDatasourceVController.swift */,
+				18E900A71FBE36A50036F5D3 /* LoginRegisterController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -244,14 +275,26 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Chatter/Pods-Chatter-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/LBTAComponents/LBTAComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
+				"${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/TRON/TRON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LBTAComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pastel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TRON.framework",
 			);
@@ -268,11 +311,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB7F22731FB4721400EC5DDB /* HomeDataSource.swift in Sources */,
+				18E900E41FBEDF940036F5D3 /* LoginController.swift in Sources */,
+				18E900E71FBEE17E0036F5D3 /* CKLRViewController.swift in Sources */,
 				181F52E61FBCC362006CFFFB /* Tweet.swift in Sources */,
+				18E900E91FBEE1CB0036F5D3 /* RegisterController.swift in Sources */,
 				BB7F226D1FB4717B00EC5DDB /* HeaderCell.swift in Sources */,
 				BB7F226B1FB4711B00EC5DDB /* HomeDatasourceVController.swift in Sources */,
 				181F52E41FBCB848006CFFFB /* TweetCell.swift in Sources */,
 				BB7F22711FB471B800EC5DDB /* UserCell.swift in Sources */,
+				18E900A81FBE36A50036F5D3 /* LoginRegisterController.swift in Sources */,
+				18E900EC1FBEEB1E0036F5D3 /* CKLRViewControllerAble.swift in Sources */,
 				BB5401BA1FB6339300810FA2 /* User.swift in Sources */,
 				BB7F226F1FB4718C00EC5DDB /* FooterCell.swift in Sources */,
 				BB7F22501FB455BF00EC5DDB /* AppDelegate.swift in Sources */,

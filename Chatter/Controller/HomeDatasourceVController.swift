@@ -8,25 +8,64 @@
 //
 
 import LBTAComponents
+import TRON
+import SwiftyJSON
+
+
+class Home : JSONDecodable {
+    required init(json: JSON) throws {
+        print("Home is handling JSON: ", json)
+    }
+}
+
+class JSONError: JSONDecodable {
+    required init(json: JSON) throws {
+        print("We have hit an Error:")
+    }
+}
+
 
 class HomeDatasourceVController: DatasourceController {
     let homeDataSource = HomeDataSource()
     override func viewDidLoad() {
         super.viewDidLoad()
         datasource = homeDataSource
+        fetchDataSource()
         setupNavigationItems()
         collectionView?.backgroundColor =  UIColor(r: 232, g: 236, b: 241)
     }
     
+    fileprivate func fetchDataSource() {
+        let tron = TRON(baseURL: "https://api.letsbuildthatapp.com")
+        let request : APIRequest<Home,JSONError> =  tron.request("/twitter/home")
+        request.perform(withSuccess: { (home) in
+            print("Succesfully retrieved JSON objects: ", home)
+        }) { (error) in
+            print("Error downloading JSON Objects: ", error)
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        if let tweet = self.datasource?.item(indexPath) as? Tweet {
+            let approximateWidthOfBioTextView = view.frame.width - 12 - 50 - 12 - 2
+            let size = CGSize(width: approximateWidthOfBioTextView, height: 1000)
+            let attributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)]
+            
+            let estimatedFrame = NSString(string: tweet.text).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+            
+            return CGSize(width: view.frame.width, height: estimatedFrame.height + 66)
+        }
+        
+        
         if let user = self.datasource?.item(indexPath) as? User {
-            let estimatedWidthOfDisplayText = self.view.frame.width   // view padding
+            let estimatedWidthOfDisplayText = view.frame.width - 12 - 50 - 12 - 2   // view padding
             let size = CGSize(width: estimatedWidthOfDisplayText, height: 1000)
             let attributes = [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15)]
             
             let estimatedFrame = NSString(string: user.displayText).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
             
-            return CGSize(width: view.frame.width, height: estimatedFrame.height + 52)
+            return CGSize(width: view.frame.width, height: estimatedFrame.height + 66)
         }
         return CGSize(width: view.frame.width, height: 200)
     }
