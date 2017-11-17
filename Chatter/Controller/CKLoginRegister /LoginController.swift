@@ -13,13 +13,16 @@ import SnapKit
 
 class LoginController: CKLRViewController {
     
-    let stackHeightConstant: CGFloat = 150
+    let stackHeightConstant: CGFloat = 180
     var stackView: UIStackView!
     
     // inputs container, holds the inputs of the View. email/password
     var inputsContainerView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.white
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 8
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -40,8 +43,6 @@ class LoginController: CKLRViewController {
     var emailTextField: TextField! = {
         let textField = ErrorTextField()
         textField.placeholder = "Email"
-        let imageViewIcon = UIImageView(image: Icon.email)
-        imageViewIcon.backgroundColor = Color.amber.base
         textField.clearButtonMode = .whileEditing
         textField.font = RobotoFont.regular(with: 15)
         textField.placeholderAnimation = .hidden
@@ -53,23 +54,76 @@ class LoginController: CKLRViewController {
         textField.placeholder = "Password"
         textField.font = RobotoFont.regular(with: 15)
         textField.detail = "atleast 6 characters"
-        textField.placeholderAnimation = .hidden
         textField.isSecureTextEntry = true
         textField.clearButtonMode = .whileEditing
+        textField.placeholderAnimation = .hidden
         return textField
     }()
+    
+    var loginButton: RaisedButton = {
+        let button = RaisedButton(title: "Log-In", titleColor: Color.flatBlack)
+        button.titleLabel?.font = RobotoFont.bold(with: 16)
+        button.backgroundColor = UIColor.flatGreen
+        button.pulseColor = UIColor.flatForestGreen
+        return button
+    }()
+    
+    
+    func setupViews() {
+        inputsContainerView.addSubview(emailTextField)
+        inputsContainerView.addSubview(passwordTextField)
+        view.addSubview(loginButton)
+        
+        emailTextField.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(8)
+            make.left.equalToSuperview().offset(8)
+            make.right.equalToSuperview().inset(8)
+            make.height.equalTo(70)
+        }
+        
+        passwordTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(emailTextField.snp.bottom).offset(-8)
+            make.left.equalToSuperview().offset(8)
+            make.right.equalToSuperview().inset(8)
+            make.height.equalTo(70)
+        }
+        
+        loginButton.snp.makeConstraints { (make) in
+            make.top.equalTo(inputsContainerView.snp.bottom).offset(12)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(inputsContainerView.snp.width)
+            make.height.equalTo(50)
+        }
+        
+    }
     
     func createStackView() {
         
         // two placeHolder views that hold my textViews
         let view1 = UIView()
+
+        view1.layer.borderWidth = 2
+        view1.layer.borderColor = UIColor.flatGreen.cgColor
         let view2 = UIView()
 
-        let arrangedSubviews : [UIView] = [view1, view2]
-        handleSetupStackView(withViews: arrangedSubviews)
+        view2.layer.borderWidth = 2
+        view2.layer.borderColor = UIColor.flatGreen.cgColor
+        let view3 = UIView()
+        
+        var orLabel = UILabel()
+        orLabel.text = "- OR -"
+        orLabel.font = RobotoFont.bold(with: 15)
+        orLabel.textAlignment = .center
+        
 
+        
+        let arrangedSubviews : [UIView] = [view1, view2, view3]
+        handleSetupStackView(withViews: arrangedSubviews)
+        
         view1.addSubview(emailTextField)
         view2.addSubview(passwordTextField)
+        view3.addSubview(loginButton)
+        view.addSubview(orLabel)
         
         emailTextField.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(12)
@@ -85,6 +139,20 @@ class LoginController: CKLRViewController {
             make.height.equalToSuperview()
         }
         
+        loginButton.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.height.equalToSuperview()
+        }
+        
+        orLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(stackView.snp.bottom).offset(12)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalTo(50)
+        }
+        
     }
     
     /// handles the general setup for the UIStackview. The Stackview holds the emailTextField
@@ -97,6 +165,7 @@ class LoginController: CKLRViewController {
         stackView.backgroundColor = .red
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
+        stackView.spacing = 5
         
         //
         inputsContainerView.addSubview(stackView)
@@ -127,8 +196,10 @@ class LoginController: CKLRViewController {
     override func setup() {
         super.setup()
         controllerTitleLabel.setTitle("Log In")
+        controllerTitleLabel.textColor = UIColor.flatGreen
         handleCreateInputsContainer()
         createStackView()
+        //setupViews()
         setupTapGesture()
         
         print(emailTextField.leftView ?? UIView())

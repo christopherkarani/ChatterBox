@@ -42,7 +42,8 @@ class CKLRViewController : UIViewController, CKLRViewControllerAble {
     open func setup() {
         controllerViewConstraints()
         setupNavigationBar()
-        setupPastelBackground()
+        //setupPastelBackground()
+        view.backgroundColor = UIColor.flatWhite
     }
     
 
