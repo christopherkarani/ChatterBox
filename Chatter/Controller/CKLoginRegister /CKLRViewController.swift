@@ -10,10 +10,11 @@ import Material
 import Pastel
 import SnapKit
 
+// abstract superclass that is inherited by login and register Controllers
 class CKLRViewController : UIViewController, CKLRViewControllerAble {
     var controllerTitleLabel : CKLRLabel!
-
-
+    let loginInputsContainerHeight: CGFloat = 180
+    let registerInputsContainerHeight: CGFloat = 250
     
     open var LoginRegisterButton: UIButton = {
        let button = UIButton(type: .system)
@@ -21,8 +22,20 @@ class CKLRViewController : UIViewController, CKLRViewControllerAble {
         return button
     }()
     
+    // inputs container, holds the inputs of the View. email/password
+    var inputsContainerView : UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 8
+        view.backgroundColor = .clear
+        return view
+    }()
+    
+    
     fileprivate func controllerViewConstraints() {
         controllerTitleLabel = CKLRLabel()
+        controllerTitleLabel.textColor = UIColor.flatGreen
         
         func addSubviews() {
             view.addSubview(controllerTitleLabel!)
@@ -35,10 +48,8 @@ class CKLRViewController : UIViewController, CKLRViewControllerAble {
             make.centerX.equalToSuperview()
         }
     }
-    
 
-
-    
+    // general setup goes here, usually overriden by the subclass
     open func setup() {
         controllerViewConstraints()
         setupNavigationBar()
@@ -46,9 +57,18 @@ class CKLRViewController : UIViewController, CKLRViewControllerAble {
         view.backgroundColor = UIColor.flatWhite
     }
     
-
     open func setloginRegisterTitile(_ title: String) {
         self.LoginRegisterButton.setTitle(title, for: .normal)
+    }
+    
+    internal func handleCreateInputsContainer(withHeight height: CGFloat) {
+        view.addSubview(inputsContainerView)
+        inputsContainerView.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(controllerTitleLabel.snp.bottom).offset(20)
+            make.width.equalToSuperview().offset(-20)
+            make.height.equalTo(height)
+        }
     }
     
     private func setupPastelBackground() {
