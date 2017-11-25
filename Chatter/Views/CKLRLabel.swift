@@ -9,22 +9,15 @@
 import Material
 
 class CKLRLabel : UILabel {
-    var controllable: CKLRViewControllerAble?
-    
-    override init(frame: CGRect) {
+
+    init(text inputText: String) {
         super.init(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-        setText()
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    private func setText() {
+        text = inputText
         textColor = .white
         font = UIFont.boldSystemFont(ofSize: 30)
+        translatesAutoresizingMaskIntoConstraints = false
     }
-    
-    open func setTitle(_ string: String) {
-        text = string
-    }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -11,13 +11,12 @@ import Motion
 import ChameleonFramework
 import SnapKit
 
+
+
 class LoginController: CKLRViewController {
     
 
-    var stackView: UIStackView!
-    
-    
-    
+    let stackView = UIStackView()
     // request toresign TextFields from firstResponser
     @objc func handleResignFirstResponder() {
         emailTextField.resignFirstResponder()
@@ -59,39 +58,18 @@ class LoginController: CKLRViewController {
         button.pulseColor = UIColor.flatForestGreen
         return button
     }()
-    
-    
 
-    
-    func createStackView() {
-
-        let specifiedSubViews : [UIView] = [emailTextField, passwordTextField, loginButton]
-        let stackView = handleSetupStackView(withViews: specifiedSubViews, withAxis: .vertical, andSDistribution: .fillProportionally, andSpacing: 5)
-        inputsContainerView.addSubview(stackView)
-        
-        stackView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.left.equalToSuperview()
-            make.right.equalToSuperview()
-        }
-    }
-    
-    /// handles the general setup for the UIStackview. The Stackview holds the emailTextField
-    /// and passwordTextField.
-    /// parameteres:
-    /// - views : An Array of views for the stackview to layout
-
-    
-    /// handles adding inputsContainerView to view and sets The Constraints
-
-    
     override func setup() {
         super.setup()
-        
         controllerTitleLabel.setTitle("Log In")
-        handleCreateInputsContainer(withHeight: loginInputsContainerHeight)
+        handleCreateInputsContainer()
         createStackView()
         setupTapGesture()
+    }
+}
+
+extension LoginController: LoginService {
+    func loginIn() {
+        print("logging in")
     }
 }

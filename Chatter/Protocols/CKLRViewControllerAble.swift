@@ -14,22 +14,32 @@ protocol CKLRViewControllerAble {
     func handleCreateInputsContainer()
     func createStackView()
     func handleSetupStackView(withViews views: [UIView], setupStackView stackView: UIStackView, withAxis axis: UILayoutConstraintAxis, andSDistribution distribution: UIStackViewDistribution, andSpacing spacing: CGFloat ) -> UIStackView
+    
+    func hello()
 }
 
 extension CKLRViewControllerAble {
         func handleSetupStackView(withViews views: [UIView], setupStackView stackView: UIStackView, withAxis axis: UILayoutConstraintAxis, andSDistribution distribution: UIStackViewDistribution, andSpacing spacing: CGFloat ) -> UIStackView {
         
         // general setup for the stackview
-        stackView.arrangedSubviews = views
+            for view in views { stackView.addArrangedSubview(view) }
         stackView.backgroundColor = .red
         stackView.axis = axis
         stackView.distribution = distribution
         stackView.spacing = spacing
         return stackView
     }
+    
 }
 
 extension CKLRViewControllerAble where Self: LoginController {
+    
+    var controllerTitleLabel: CKLRLabel = {
+        get {
+            return CKLRLabel(
+        }
+    }
+    
     private func handleCreateInputsContainer() {
         view.addSubview(inputsContainerView)
         inputsContainerView.snp.makeConstraints { (make) in
@@ -40,10 +50,14 @@ extension CKLRViewControllerAble where Self: LoginController {
         }
     }
     
+    func hello() {
+        print("hello")
+    }
+    
     func createStackView() {
         let specifiedSubViews : [UIView] = [emailTextField, passwordTextField, loginButton]
-        let stackView = handleSetupStackView(withViews: specifiedSubViews, withAxis: .vertical, andSDistribution: .fillProportionally, andSpacing: 5)
-        inputsContainerView.addSubview(stackView)
+        let stackViewx = handleSetupStackView(withViews: specifiedSubViews, setupStackView: stackView, withAxis: .vertical, andSDistribution: .fillProportionally, andSpacing: 5)
+        inputsContainerView.addSubview(stackViewx)
         
         stackView.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
